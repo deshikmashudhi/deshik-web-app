@@ -1,12 +1,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  
   <groupId>onlinebookstore</groupId>
   <artifactId>onlinebookstore</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+
+  <properties>
+    <!-- SonarQube properties -->
+    <sonar.host.url>http://3.90.108.25:9000</sonar.host.url> <!-- SonarQube server URL -->
+    <sonar.projectKey>onlinebookstore</sonar.projectKey> <!-- Unique SonarQube project key -->
+    <sonar.projectName>Online Bookstore</sonar.projectName> <!-- SonarQube project name -->
+    <sonar.login>squ_a4aa8822d06451ac2e76e2bb67313fd5e7686724</sonar.login>
+  </properties>
+
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
+      <!-- Compiler Plugin -->
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.0</version>
@@ -15,6 +26,8 @@
           <target>1.7</target>
         </configuration>
       </plugin>
+
+      <!-- WAR Plugin -->
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.2.1</version>
@@ -22,28 +35,37 @@
           <warSourceDirectory>WebContent</warSourceDirectory>
         </configuration>
       </plugin>
+
+      <!-- SonarQube Plugin -->
+      <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.9.0.2155</version> <!-- Use the latest stable version -->
+      </plugin>
     </plugins>
   </build>
+
   <dependencies>
-  	
-  	<dependency>
-  		<groupId>org.postgresql</groupId>
-  		<artifactId>postgresql</artifactId>
-  		<version>42.3.3</version>
-  	</dependency>
-  	
-  	
-	<dependency>
-	    <groupId>mysql</groupId>
-	    <artifactId>mysql-connector-java</artifactId>
-	    <version>8.0.16</version>
-	</dependency>
-  	
-  
-  	<dependency>
-  		<groupId>javax.servlet</groupId>
-  		<artifactId>javax.servlet-api</artifactId>
-  		<version>3.1.0</version>
-  	</dependency>
+    <!-- PostgreSQL JDBC Driver -->
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.3.3</version>
+    </dependency>
+
+    <!-- MySQL JDBC Driver -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.16</version>
+    </dependency>
+
+    <!-- Servlet API -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+    </dependency>
   </dependencies>
 </project>
+
