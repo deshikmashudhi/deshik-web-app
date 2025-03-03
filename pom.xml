@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  
+
   <groupId>onlinebookstore</groupId>
   <artifactId>onlinebookstore</artifactId>
   <version>0.0.1-SNAPSHOT</version>
@@ -12,8 +12,15 @@
     <sonar.projectKey>onlinebookstore</sonar.projectKey> <!-- Unique SonarQube project key -->
     <sonar.projectName>Online Bookstore</sonar.projectName> <!-- SonarQube project name -->
     <sonar.login>squ_b69b70b59ced1657126167a8850c82c59606c1a0</sonar.login> <!-- SonarQube token -->
-</properties>
+  </properties>
 
+  <!-- Distribution management for Nexus -->
+  <distributionManagement>
+    <repository>
+      <id>nexus</id> <!-- ID matching the one in your settings.xml -->
+      <url>http://3.80.60.224:8081/repository/online-snapshot1/</url> <!-- Nexus repository URL -->
+    </repository>
+  </distributionManagement>
 
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -43,6 +50,20 @@
         <artifactId>sonar-maven-plugin</artifactId>
         <version>3.9.0.2155</version> <!-- Use the latest stable version -->
       </plugin>
+
+      <!-- Deploy Plugin to Nexus -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>deploy</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 
@@ -68,5 +89,5 @@
       <version>3.1.0</version>
     </dependency>
   </dependencies>
-</project>
 
+</project>
