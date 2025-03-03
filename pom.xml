@@ -74,10 +74,5 @@
       <name>Nexus Release Repository</name>
       <url>http://3.80.60.224:8081/repository/online-release/</url> <!-- Make sure this is the correct repository URL for snapshots -->
     </repository>
-    <snapshotRepository>
-      <id>nexus-snapshots</id>
-      <name>Nexus Snapshot Repository</name>
-      <url>http://3.80.60.224:8081/repository/online-snapshot/</url> <!-- Same URL for snapshot repository -->
-    </snapshotRepository>
   </distributionManagement>
 </project>
