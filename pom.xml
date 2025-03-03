@@ -80,13 +80,4 @@
       <url>http://3.80.60.224:8081/repository/online-snapshot1/</url> <!-- Same URL for snapshot repository -->
     </snapshotRepository>
   </distributionManagement>
-
-  <servers>
-    <server>
-        <id>nexus</id> <!-- Make sure this matches the <id> used in your distributionManagement section -->
-        <username>admin</username> <!-- Your Nexus username -->
-        <password>nexus123</password> <!-- Your Nexus password -->
-    </server>
-</servers>
-
 </project>
