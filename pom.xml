@@ -81,4 +81,12 @@
     </snapshotRepository>
   </distributionManagement>
 
+  <servers>
+    <server>
+        <id>nexus</id> <!-- Make sure this matches the <id> used in your distributionManagement section -->
+        <username>admin</username> <!-- Your Nexus username -->
+        <password>nexus123</password> <!-- Your Nexus password -->
+    </server>
+</servers>
+
 </project>
