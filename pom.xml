@@ -8,11 +8,12 @@
 
   <properties>
     <!-- SonarQube properties -->
-    <sonar.host.url>http://3.90.108.25:9000</sonar.host.url> <!-- SonarQube server URL -->
+    <sonar.host.url>http://54.226.210.125:9000</sonar.host.url> <!-- SonarQube server URL -->
     <sonar.projectKey>onlinebookstore</sonar.projectKey> <!-- Unique SonarQube project key -->
     <sonar.projectName>Online Bookstore</sonar.projectName> <!-- SonarQube project name -->
-    <sonar.login>squ_a4aa8822d06451ac2e76e2bb67313fd5e7686724</sonar.login>
-  </properties>
+    <sonar.login>squ_b69b70b59ced1657126167a8850c82c59606c1a0</sonar.login> <!-- SonarQube token -->
+</properties>
+
 
   <build>
     <sourceDirectory>src</sourceDirectory>
