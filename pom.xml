@@ -7,17 +7,15 @@
   <packaging>war</packaging>
 
   <properties>
-    <!-- SonarQube properties -->
-    <sonar.host.url>http://50.19.41.251:9000/</sonar.host.url> <!-- SonarQube server URL -->
-    <sonar.projectKey>onlinebookstore</sonar.projectKey> <!-- Unique SonarQube project key -->
-    <sonar.projectName>Online Bookstore</sonar.projectName> <!-- SonarQube project name -->
-    <sonar.login>squ_de2e727cfcc587f7d5898a20cb27895cb2b19af7</sonar.login> <!-- SonarQube token -->
+    <sonar.host.url>http://50.19.41.251:9000/</sonar.host.url>
+    <sonar.projectKey>onlinebookstore</sonar.projectKey>
+    <sonar.projectName>Online Bookstore</sonar.projectName>
+    <sonar.login>squ_de2e727cfcc587f7d5898a20cb27895cb2b19af7</sonar.login>
   </properties>
 
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
-      <!-- Compiler Plugin -->
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.0</version>
@@ -27,7 +25,6 @@
         </configuration>
       </plugin>
 
-      <!-- WAR Plugin -->
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.2.1</version>
@@ -36,31 +33,27 @@
         </configuration>
       </plugin>
 
-      <!-- SonarQube Plugin -->
       <plugin>
         <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
-        <version>3.9.0.2155</version> <!-- Use the latest stable version -->
+        <version>3.9.0.2155</version>
       </plugin>
     </plugins>
   </build>
 
   <dependencies>
-    <!-- PostgreSQL JDBC Driver -->
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
       <version>42.3.3</version>
     </dependency>
 
-    <!-- MySQL JDBC Driver -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.16</version>
     </dependency>
 
-    <!-- Servlet API -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
@@ -69,14 +62,12 @@
   </dependencies>
 
   <distributionManagement>
-    <!-- Release Repository -->
     <repository>
       <id>nexus-releases</id>
       <name>Nexus Releases</name>
       <url>http://34.234.63.138:8081/repository/online-release/</url>
     </repository>
 
-    <!-- Snapshot Repository -->
     <snapshotRepository>
       <id>nexus-snapshots</id>
       <name>Nexus Snapshots</name>
@@ -85,13 +76,11 @@
   </distributionManagement>
 
   <repositories>
-    <!-- Release Repository -->
     <repository>
       <id>nexus-releases</id>
       <url>http://34.234.63.138:8081/repository/online-release/</url>
     </repository>
 
-    <!-- Snapshot Repository -->
     <repository>
       <id>nexus-snapshots</id>
       <url>http://34.234.63.138:8081/repository/online-snapshot/</url>
