@@ -68,4 +68,33 @@
     </dependency>
   </dependencies>
 
+  <distributionManagement>
+    <!-- Release Repository -->
+    <repository>
+      <id>nexus-releases</id>
+      <name>Nexus Releases</name>
+      <url>http://34.234.63.138:8081/repository/online-release/</url>
+    </repository>
+
+    <!-- Snapshot Repository -->
+    <snapshotRepository>
+      <id>nexus-snapshots</id>
+      <name>Nexus Snapshots</name>
+      <url>http://34.234.63.138:8081/repository/online-snapshot/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <repositories>
+    <!-- Release Repository -->
+    <repository>
+      <id>nexus-releases</id>
+      <url>http://34.234.63.138:8081/repository/online-release/</url>
+    </repository>
+
+    <!-- Snapshot Repository -->
+    <repository>
+      <id>nexus-snapshots</id>
+      <url>http://34.234.63.138:8081/repository/online-snapshot/</url>
+    </repository>
+  </repositories>
 </project>
