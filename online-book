@@ -1,79 +1,76 @@
 pipeline {
     agent any
-    
-tools {
-  maven 'maven-3'
+
+    tools {
+        maven 'maven-3'
     }
 
-
     stages {
-        
+
         stage('gitcheckout') {
             steps {
                 git branch: 'bookstore', url: 'https://github.com/deshikmashudhi/deshik-web-app.git'
             }
         }
-        
+
         stage('clean') {
             steps {
                 sh 'mvn clean'
             }
         }
-        
+
         stage('install') {
             steps {
                 sh 'mvn install'
             }
         }
+
         stage('build') {
             steps {
                 sh 'mvn clean package'
             }
         }
-        
-        
+
     }
-//}
 
-post {
-  success {
-    notifyBuild(currentBuild.result)
-  }
-  failure {
-notifyBuild(currentBuild.result)
-      }
+    post {
+        success {
+            notifyBuild(currentBuild.result)
+        }
+        failure {
+            notifyBuild(currentBuild.result)
+        }
+    }
 }
-}//pipeline closing
-
 
 def notifyBuild(String buildStatus = 'STARTED') {
-  // build status of null means successful
-  buildStatus =  buildStatus ?: 'SUCCESS'
+    // build status of null means successful
+    buildStatus = buildStatus ?: 'SUCCESS'
 
-  // Default values
-  def colorName = 'RED'
-  def colorCode = '#FF0000'
-  def subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
-  def summary = "${subject} (${env.BUILD_URL})"
+    // Default values
+    def colorName = 'RED'
+    def colorCode = '#FF0000'
+    def subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
+    def summary = "${subject} (${env.BUILD_URL})"
 
-  // Override default values based on build status
-  if (buildStatus == 'STARTED') {
-    color = 'YELLOW'
-    colorCode = '#FFFF00'
-  } else if (buildStatus == 'SUCCESS') {
-    color = 'GREEN'
-    colorCode = '#00FF00'
-  } else {
-    color = 'RED'
-    colorCode = '#FF0000'
-  }
-   // List of channels
+    // Override default values based on build status
+    if (buildStatus == 'STARTED') {
+        color = 'YELLOW'
+        colorCode = '#FFFF00'
+    } else if (buildStatus == 'SUCCESS') {
+        color = 'GREEN'
+        colorCode = '#00FF00'
+    } else {
+        color = 'RED'
+        colorCode = '#FF0000'
+    }
+
+    // List of channels
     def channels = ['#1', '#all-online-bookstore']
 
     // Send message to each channel
     channels.each { channel ->
         slackSend (color: colorCode, message: summary, channel: channel)
-   slackSend (color: colorCode, message: summary, channel: channel)
-
-
+  
+}
 }
