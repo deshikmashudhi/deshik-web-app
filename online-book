@@ -67,7 +67,13 @@ def notifyBuild(String buildStatus = 'STARTED') {
     color = 'RED'
     colorCode = '#FF0000'
   }
-   slackSend (color: colorCode, message: summary, channel: '#1')
+   // List of channels
+    def channels = ['#1', '#all-online-bookstore']
+
+    // Send message to each channel
+    channels.each { channel ->
+        slackSend (color: colorCode, message: summary, channel: channel)
+   slackSend (color: colorCode, message: summary, channel: channel)
 
 
 }
