@@ -31,11 +31,7 @@ tools {
             }
         }
         
-        stage('deploy to nexus') {
-            steps {
-                sh 'mvn deploy'
-            }
-        }
+        
     }
 //}
 
