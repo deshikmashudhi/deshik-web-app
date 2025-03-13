@@ -74,6 +74,4 @@ def notifyBuild(String buildStatus = 'STARTED') {
     channels.each { channel ->
         slackSend (color: colorCode, message: summary, channel: channel)
    slackSend (color: colorCode, message: summary, channel: channel)
-
-
 }
