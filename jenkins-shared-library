@@ -1,0 +1,41 @@
+@Library('mavenbuild') _
+
+pipeline {
+    agent any
+    
+tools {
+    maven "maven-3.9.9"
+}
+
+    parameters {
+        choice(
+            choices: ['bookstore', 'main'], 
+            description: 'Select branches of the Jio project', 
+            name: 'BranchName'
+        )
+    }
+
+    stages {
+        
+        
+        stage('gitcheckout') {
+            steps {
+                git url: 'https://github.com/deshikmashudhi/deshik-web-app.git', branch: "${params.BranchName}"
+            }
+        }
+
+        stage('buildartifact')
+        {
+            steps{
+                 build("Package")  //in this build referes to the file
+                 }
+        }
+
+        
+    }
+
+    
+}
+
+
+
