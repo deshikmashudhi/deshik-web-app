@@ -42,6 +42,21 @@
   </build>
 
   <dependencies>
+    <!-- MongoDB Java Driver -->
+    <dependency>
+      <groupId>org.mongodb</groupId>
+      <artifactId>mongodb-driver-sync</artifactId>
+      <version>4.5.0</version> <!-- Make sure to use the latest version -->
+    </dependency>
+
+    <!-- Existing dependencies -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+    </dependency>
+
+    <!-- Optional: Keep MySQL/PostgreSQL dependencies if needed in future -->
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
@@ -52,12 +67,6 @@
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.16</version>
-    </dependency>
-
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>3.1.0</version>
     </dependency>
   </dependencies>
 
@@ -74,5 +83,4 @@
       <url>http://54.82.5.75:8081/repository/online-snapshot/</url>
     </snapshotRepository>
   </distributionManagement>
-
 </project>
